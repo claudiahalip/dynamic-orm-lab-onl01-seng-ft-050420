@@ -7,6 +7,8 @@ class InteractiveRecord
     self.to_s.downcase.pluralize
   end 
   
+  
+  
   def self.column_names 
     
     DB[:conn].results_as_hash = true 
@@ -24,28 +26,42 @@ class InteractiveRecord
   
   
   
+  
+  
+  
+  
   def initialize (h_arr = {})
     h_arr.each do | key, value |
       self.send("#{key}=",value)
     end 
   end 
   
+  
+  
+  
   def table_name_for_insert
     self.class.table_name
   end
+  
+  
   
   def col_names_for_insert
     self.class.column_names.delete_if { | column | column = "id"}.join(", ")
   end 
   
   
-  def values_for_insert 
-    values = []
-    self.class.column_names.each do |column|
-      values << "'#{send(column)}" unless send(column).nil ?
-    end
-    values.join(", ")
-  end
+  
+  
+  
+  # def values_for_insert 
+  #   values = []
+  #   self.class.column_names.each do |column|
+  #     values << "'#{send(column)}" unless send(column).nil ?
+  #   end
+  #   values.join(", ")
+  # end
+  
+  
   
   
   
