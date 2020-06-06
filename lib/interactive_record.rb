@@ -42,9 +42,10 @@ class InteractiveRecord
     values = []
     self.class.calumn_names.each do |column|
       values << "'#{send(column)}" unless send(column).nil ?
-    end
     values.join(", ")
   end
+  
+  
   
   def save 
     sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
