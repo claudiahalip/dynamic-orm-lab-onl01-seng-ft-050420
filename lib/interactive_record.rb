@@ -29,12 +29,17 @@ class InteractiveRecord
   
 
   
-  def initialize (h_arr = {})
-    h_arr.each do | key, value |
-      self.send("#{key}=",value)
-    end 
-  end 
+  # def initialize (h_arr = {})
+  #   h_arr.each do | key, value |
+  #     self.send("#{key}=",value)
+  #   end 
+  # end 
   
+  def initialize(objects={})
+    objects.each do |k, v|
+      self.send("#{k}=", v)
+    end
+  end
   
   
   
