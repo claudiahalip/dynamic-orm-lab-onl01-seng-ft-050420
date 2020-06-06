@@ -31,7 +31,7 @@ class InteractiveRecord
     h_arr.each do | key, value |
       self.send("#{key}=",value)
     end 
-    self
+    
   end 
    
   
