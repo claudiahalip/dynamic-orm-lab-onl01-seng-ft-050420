@@ -34,13 +34,13 @@ class InteractiveRecord
     self.class.table_name
   end
   
-  def column_names_for_insert
+  def col_names_for_insert
     self.class.column_names.delete_if { | column | column = "id"}.join(", ")
   end 
   
   
   def save 
-    sql = "INSERT INTO #{table_name_for_insert} (#{column_names_for_insert}) VALUES (#{values_for_insert})"
+    sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
     DB[:conn].execute(sql)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
   end
