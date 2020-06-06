@@ -73,6 +73,9 @@ class InteractiveRecord
   end
    
   def self.find_by_name
+    sql = <<-SQL
+    SELECT * FROM self.table_name_for_insert
+    WHERE 
   end
   
   def self.find_by
