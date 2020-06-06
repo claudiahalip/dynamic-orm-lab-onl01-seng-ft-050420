@@ -39,7 +39,9 @@ class InteractiveRecord
   end 
   
   def values_for_insert 
-    
+    values = []
+    self.class.calumn_names.each do |column|
+      
   
   
   def save 
