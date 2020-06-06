@@ -89,12 +89,20 @@ class InteractiveRecord
   
   
   
-  def self.find_by(id)
-    sql = "SELECT * FROM #{self.table_name}
-    WHERE id = '#{id}'" 
-    DB[:conn].execute(sql)
+  def self.find_by(att)
+    column_name = att.keys[0].to_s
+    value_name = att.values[0]
+    
+    
+    sql = <<-SQL 
+    SELECT * FROM #{table_name}
+    WHERE #{column_name = ?
+    SQL
+    DB[:conn].execute(sql,value_name)
     
   end
+  
+  
   
   
 end
