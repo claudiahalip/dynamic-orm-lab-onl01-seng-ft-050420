@@ -75,7 +75,7 @@ class InteractiveRecord
   def self.find_by_name(name)
     sql = <<-SQL
     SELECT * FROM self.table_name_for_insert
-    WHERE #{"name} = name
+    WHERE name = '#{name}'"
   end
   
   def self.find_by
