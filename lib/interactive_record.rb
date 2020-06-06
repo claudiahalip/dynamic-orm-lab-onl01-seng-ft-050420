@@ -29,7 +29,7 @@ class InteractiveRecord
   
   def initialize (h_arr = {})
     h_arr.each do | key, value |
-      self.send("#{key}",value)
+      self.send("#{key}=",value)
     end 
     self
   end 
