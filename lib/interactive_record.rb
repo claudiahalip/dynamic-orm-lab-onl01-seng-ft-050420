@@ -51,8 +51,6 @@ class InteractiveRecord
   
   
   
-  
-  
   def values_for_insert 
     values = []
     self.class.column_names.each do |col_name|
